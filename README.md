@@ -4,6 +4,7 @@
 ### Ecossistema Autônomo de Agente Regente e 6 Subagentes para Antigravity AI
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI Validation](https://github.com/gwpoliveira/antigravity-fullstack-maestro/actions/workflows/ci.yml/badge.svg)](https://github.com/gwpoliveira/antigravity-fullstack-maestro/actions)
 [![Antigravity](https://img.shields.io/badge/Antigravity-Compatible-6366f1.svg)](#)
 [![Stack](https://img.shields.io/badge/Stack-Django%20%7C%20Next.js%20%7C%20MySQL-10b981.svg)](#)
 [![Deploy](https://img.shields.io/badge/VPS-Bare--Metal%20(No--Docker)-f59e0b.svg)](#)
@@ -95,6 +96,51 @@ Nenhuma feature vai para produção sem passar pelo crivo do **Guardian**:
 - [x] **Proteção de Segredos**: Proibição de credenciais em código limpo e `DEBUG=False`.
 - [x] **Cabeçalhos Blindados**: HSTS, Content Security Policy, X-Frame-Options e SameSite.
 - [x] **Rate Limiting**: Throttling em logins, cadastros e rotas de checkout.
+
+---
+
+## ⚡ SLASH COMMANDS & WORKFLOWS EXECUTÁVEIS
+
+O ecossistema disponibiliza comandos diretos com barra (`/`) para você invocar fluxos completos no Antigravity:
+
+| Slash Command | Subagente Líder | O que Faz |
+| :--- | :--- | :--- |
+| **`/nova-landing-page`** | Next.js & Frontend Master | Cria landing page de altíssima conversão com Bento Grid, Prova Social, Preços e FAQ com Schema.org JSON-LD. |
+| **`/novo-saas`** | Django Architect + Next.js Master | Inicializa um SaaS completo: models com `TenantBaseModel` + Dashboard executivo no Next.js. |
+| **`/auditoria-seguranca`** | Guardian (Security) | Varre o código procurando falhas OWASP Top 10, valida headers e emite o Selo de Segurança. |
+| **`/deploy-vps`** | VPS Sysadmin | Gera os arquivos `nginx.conf`, `gunicorn.service`, `ecosystem.config.js` e cron de backup do MySQL. |
+| **`/auditoria-seo`** | Next.js Master | Valida pontuação 100/100 no Google Lighthouse, Schema.org, sitemap e Core Web Vitals. |
+
+---
+
+## 🚀 STARTER DE LANDING PAGE DE ALTA CONVERSÃO
+
+O repositório já inclui um boilerplate completo de Landing Page modular pronto para usar na pasta [`templates/landing-page-starter/`](templates/landing-page-starter):
+- **Hero Section** (`Hero.tsx`): Carregamento instantâneo com `priority` e CTA magnético duplo.
+- **Bento Grid** (`BentoGrid.tsx`): Grade visual Obsidian de recursos em cartões assimétricos.
+- **Pricing Cards** (`Pricing.tsx`): Tabela de planos com alternador Mensal/Anual (-20%).
+- **FAQ Accordion** (`Faq.tsx`): Injeção nativa de Schema.org `FAQPage` para Rich Snippets no Google.
+- **Indexação** (`sitemap.ts` e `robots.ts`): Configuração prévia para os rastreadores do Googlebot.
+
+---
+
+## 🏷️ BADGES OFICIAIS (EMBARQUE NO SEU REPOSITÓRIO)
+
+Após construir seu projeto ou landing page com o ecossistema, cole os badges oficiais no topo do seu próprio `README.md` para comprovar que seu software segue os padrões de segurança e engenharia do Maestro:
+
+### 1. Selo de Segurança Aprovado pelo Guardian:
+```markdown
+[![Security Seal](https://img.shields.io/badge/Security_Seal-Approved_by_Guardian-10b981.svg?style=for-the-badge&logo=shield)](https://github.com/gwpoliveira/antigravity-fullstack-maestro)
+```
+Resultado visual:  
+[![Security Seal](https://img.shields.io/badge/Security_Seal-Approved_by_Guardian-10b981.svg?style=for-the-badge&logo=shield)](https://github.com/gwpoliveira/antigravity-fullstack-maestro)
+
+### 2. Orquestrado por Antigravity Maestro:
+```markdown
+[![Orquestrado por Maestro](https://img.shields.io/badge/Orquestrado_por-Antigravity_Maestro-6366f1.svg?style=for-the-badge&logo=antigravity)](https://github.com/gwpoliveira/antigravity-fullstack-maestro)
+```
+Resultado visual:  
+[![Orquestrado por Maestro](https://img.shields.io/badge/Orquestrado_por-Antigravity_Maestro-6366f1.svg?style=for-the-badge&logo=antigravity)](https://github.com/gwpoliveira/antigravity-fullstack-maestro)
 
 ---
 

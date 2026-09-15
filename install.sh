@@ -14,10 +14,16 @@ PLUGIN_DIR="$CONFIG_DIR/plugins/fullstack-maestro-plugin"
 SKILLS_DIR="$CONFIG_DIR/skills"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-mkdir -p "$PLUGIN_DIR/rules" "$PLUGIN_DIR/skills" "$PLUGIN_DIR/templates" "$SKILLS_DIR"
+mkdir -p "$PLUGIN_DIR/rules" "$PLUGIN_DIR/skills" "$PLUGIN_DIR/workflows" "$PLUGIN_DIR/templates" "$SKILLS_DIR" "$CONFIG_DIR/workflows"
 
 echo -e "\033[1;33m📦 Copiando templates de produção...\033[0m"
 cp -r "$SCRIPT_DIR/templates/"* "$PLUGIN_DIR/templates/"
+
+if [ -d "$SCRIPT_DIR/.agents/workflows" ]; then
+  echo -e "\033[1;33m⚡ Copiando workflows executáveis...\033[0m"
+  cp -r "$SCRIPT_DIR/.agents/workflows/"* "$PLUGIN_DIR/workflows/"
+  cp -r "$SCRIPT_DIR/.agents/workflows/"* "$CONFIG_DIR/workflows/"
+fi
 
 echo -e "\033[1;33m⚙️ Registrando plugin global...\033[0m"
 cp "$SCRIPT_DIR/AGENTS.md" "$PLUGIN_DIR/rules/MAESTRO_ECOSYSTEM.md"

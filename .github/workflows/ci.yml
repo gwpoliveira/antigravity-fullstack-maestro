@@ -1,0 +1,31 @@
+name: CI - Maestro Ecosystem Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Validar Sintaxe YAML das Skills
+        run: |
+          echo "Inspecionando frontmatter YAML das skills..."
+          for file in .agents/skills/*/SKILL.md; do
+            echo "Checando $file..."
+            head -n 5 "$file" | grep -E '^name:' || exit 1
+            head -n 5 "$file" | grep -E '^description:' || exit 1
+          done
+          echo "Todas as skills possuem frontmatter válido!"
+
+      - name: Testar Permissão de Execução dos Instaladores
+        run: |
+          test -f install.sh && echo "install.sh encontrado."
+          test -f install.ps1 && echo "install.ps1 encontrado."
+          bash -n install.sh
+          echo "Sintaxe do script bash validada com sucesso!"

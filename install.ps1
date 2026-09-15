@@ -22,11 +22,20 @@ if (-not (Test-Path $configDir)) {
 
 New-Item -ItemType Directory -Force -Path "$pluginDir\rules" | Out-Null
 New-Item -ItemType Directory -Force -Path "$pluginDir\skills" | Out-Null
+New-Item -ItemType Directory -Force -Path "$pluginDir\workflows" | Out-Null
 New-Item -ItemType Directory -Force -Path "$pluginDir\templates" | Out-Null
 New-Item -ItemType Directory -Force -Path $skillsDir | Out-Null
+$globalWorkflowsDir = Join-Path $configDir "workflows"
+New-Item -ItemType Directory -Force -Path $globalWorkflowsDir | Out-Null
 
 Write-Host ">> Copiando templates de producao..." -ForegroundColor Yellow
 Copy-Item -Recurse -Force "$scriptRoot\templates\*" "$pluginDir\templates\"
+
+Write-Host ">> Copiando workflows executaveis..." -ForegroundColor Yellow
+if (Test-Path "$scriptRoot\.agents\workflows") {
+    Copy-Item -Recurse -Force "$scriptRoot\.agents\workflows\*" "$pluginDir\workflows\"
+    Copy-Item -Recurse -Force "$scriptRoot\.agents\workflows\*" "$globalWorkflowsDir\"
+}
 
 Write-Host ">> Registrando plugin global..." -ForegroundColor Yellow
 Copy-Item -Force "$scriptRoot\AGENTS.md" "$pluginDir\rules\MAESTRO_ECOSYSTEM.md"
