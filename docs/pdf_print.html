@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual Supremo do Ecossistema Full Stack | Maestro & Subagentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 1.6cm 1.4cm 1.8cm 1.4cm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.55;
+      font-size: 11pt;
+    }
+
+    /* Page Breaks */
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .avoid-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Cover Page */
+    .cover-page {
+      height: 94vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 48px;
+      background: linear-gradient(135deg, #0b0f17 0%, #1e1b4b 50%, #0f172a 100%);
+      color: #ffffff;
+      page-break-after: always;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(99, 102, 241, 0.25);
+      border: 1px solid rgba(99, 102, 241, 0.6);
+      border-radius: 9999px;
+      color: #c7d2fe;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cover-middle h1 {
+      font-size: 34pt;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-middle p.subtitle {
+      font-size: 14pt;
+      color: #cbd5e1;
+      max-width: 600px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .cover-stack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stack-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .cover-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 9pt;
+      color: #94a3b8;
+    }
+
+    /* Content Styling */
+    h2.section-header {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3.sub-header {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+
+    /* Agent Card Grid */
+    .agent-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background: #f8fafc;
+    }
+
+    .agent-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+
+    .agent-name {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #1e1b4b;
+    }
+
+    .agent-tag {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #e0e7ff;
+      color: #4338ca;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding-left: 0;
+      font-size: 9.5pt;
+      color: #475569;
+    }
+
+    ul.bullets li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    ul.bullets li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #6366f1;
+      font-size: 11pt;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 9pt;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* Code Blocks */
+    pre {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      margin: 12px 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid #6366f1;
+      background-color: #f5f3ff;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: 9.5pt;
+    }
+
+    .callout.security {
+      border-left-color: #10b981;
+      background-color: #ecfdf5;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CAPA -->
+  <div class="cover-page">
+    <div class="cover-top">
+      <span class="cover-badge">Documentação Oficial • Antigravity AI</span>
+      <span style="font-size: 9pt; font-weight: 600; color: #94a3b8;">Edição 2026</span>
+    </div>
+
+    <div class="cover-middle">
+      <h1>MAESTRO & ESQUADRÃO FULL STACK</h1>
+      <p class="subtitle">Manual de Arquitetura, Subagentes Especialistas, Selo de Segurança e Deploy Bare-Metal em VPS (Zero Docker).</p>
+      
+      <div class="cover-stack">
+        <span class="stack-pill">🐍 Python & Django</span>
+        <span class="stack-pill">⚡ React & Next.js</span>
+        <span class="stack-pill">🐬 MySQL 8.x Nativo</span>
+        <span class="stack-pill">🛡️ OWASP Selo de Segurança</span>
+        <span class="stack-pill">🧪 Pytest & Playwright</span>
+        <span class="stack-pill">🐧 Ubuntu/Debian Bare-Metal</span>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div>
+        <strong>Desenvolvedor:</strong> gwpo<br>
+        <strong>Orquestração:</strong> Maestro Tech Lead Supremo
+      </div>
+      <div style="text-align: right;">
+        Padrão Silicon Valley<br>
+        100% Global no Antigravity
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 1: VISÃO GERAL & MAESTRO -->
+  <div class="page-content">
+    <h2 class="section-header">1. Topologia & O Agente Regente MAESTRO</h2>
+    
+    <p>O ecossistema foi projetado para elevar ao nível máximo a produtividade no desenvolvimento de <strong>SaaS Multi-tenant, E-commerces, Landing Pages de Alta Conversão, PWAs e Jogos Web</strong>.</p>
+
+    <div class="callout">
+      <div class="callout-title">👑 Papel do MAESTRO (Orquestrador Geral)</div>
+      O Maestro recebe seu objetivo em linguagem natural, faz a desconstrução arquitetural, define o modelo de dados e delega aos subagentes especializados sem retrabalho. Nenhuma entrega é dada por encerrada sem passar pelo duplo portão: <strong>QA (Testes Automatizados)</strong> e <strong>Guardian (Selo de Segurança)</strong>.
+    </div>
+
+    <h3 class="sub-header">Estrutura Operacional em 4 Passos:</h3>
+    <ol style="padding-left: 20px; font-size: 9.5pt; color: #334155; margin-bottom: 16px;">
+      <li><strong>Triagem & Arquitetura:</strong> Decomposição em modelos, rotas de API, telas e requisitos de segurança.</li>
+      <li><strong>Construção Paralela:</strong> Django/MySQL no backend e Next.js no frontend com tipagem compatível.</li>
+      <li><strong>Quality & Security Gate:</strong> Testes de integração/E2E e auditoria contra OWASP Top 10.</li>
+      <li><strong>Produção & VPS:</strong> Geração de scripts Systemd, Nginx e PM2 para execução direta no Linux.</li>
+    </ol>
+
+    <h2 class="section-header">2. Catálogo dos 6 Subagentes Especialistas</h2>
+
+    <div class="agent-box avoid-break">
+      <div class="agent-box-header">
+        <span class="agent-name">🐍 Django & MySQL Architect</span>
+        <span class="agent-tag">Backend & Dados</span>
+      </div>
+      <p style="font-size: 9pt; margin-bottom: 6px;">Especialista em APIs com Django Ninja/DRF, modelagem transacional MySQL e multi-tenancy.</p>
+      <ul class="bullets">
+        <li><strong>Zero N+1:</strong> Uso obrigatório de <code>select_related()</code> e <code>prefetch_related()</code>.</li>
+        <li><strong>Concorrência Atômica:</strong> Controle de estoque e saldos via <code>select_for_update()</code> sob <code>@transaction.atomic</code>.</li>
+        <li><strong>Campos Financeiros:</strong> Estritamente <code>DecimalField(max_digits=12, decimal_places=2)</code>.</li>
+      </ul>
+    </div>
+
+    <div class="agent-box avoid-break">
+      <div class="agent-box-header">
+        <span class="agent-name">⚡ Next.js & Frontend Master</span>
+        <span class="agent-tag">UI/UX & Design Premium</span>
+      </div>
+      <p style="font-size: 9pt; margin-bottom: 6px;">Especialista em React Server Components, Dark Mode luxuoso e conversão de vendas.</p>
+      <ul class="bullets">
+        <li><strong>Paleta Obsidian:</strong> Superfícies em <code>#0B0F17</code> e <code>#111827</code> com acentos elétricos.</li>
+        <li><strong>Tipografia Nobre:</strong> Plus Jakarta Sans e Inter; glassmorphism com <code>backdrop-filter</code>.</li>
+        <li><strong>SaaS & E-commerce:</strong> Dashboards com gráficos de métricas e checkouts sem fricção.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: SUBAGENTES RESTANTES & SELO DE SEGURANÇA -->
+  <div class="page-break"></div>
+
+  <div class="page-content">
+    <div class="agent-box avoid-break">
+      <div class="agent-box-header">
+        <span class="agent-name">🎮 Apps & Games Specialist</span>
+        <span class="agent-tag">PWA & Canvas 60 FPS</span>
+      </div>
+      <p style="font-size: 9pt; margin-bottom: 6px;">Aplicações móveis híbridas/PWA e engines para web games e gamificação.</p>
+      <ul class="bullets">
+        <li><strong>PWA Completo:</strong> Service Worker com cache offline e suporte a Safe-Areas móveis.</li>
+        <li><strong>Game Loop:</strong> Física desacoplada via <code>requestAnimationFrame</code> com delta time (<code>dt</code>).</li>
+        <li><strong>Gamificação:</strong> Roletas interativas, barras de XP, streaks e rankings integrados.</li>
+      </ul>
+    </div>
+
+    <div class="agent-box avoid-break">
+      <div class="agent-box-header">
+        <span class="agent-name">🧪 QA & Test Automation Specialist</span>
+        <span class="agent-tag">Confiabilidade & Cobertura</span>
+      </div>
+      <p style="font-size: 9pt; margin-bottom: 6px;">Automação de testes em pirâmide para blindagem contra regressões.</p>
+      <ul class="bullets">
+        <li><strong>Backend:</strong> Suíte com <code>pytest-django</code> cobrindo regras de negócio e APIs.</li>
+        <li><strong>Frontend & E2E:</strong> Testes de componentes com Vitest e fluxos críticos com Playwright.</li>
+        <li><strong>Mocks Estritos:</strong> Gateways externos (Stripe, Mercado Pago) sempre mockados nos testes.</li>
+      </ul>
+    </div>
+
+    <div class="agent-box avoid-break">
+      <div class="agent-box-header">
+        <span class="agent-name">🛡️ Guardian (Security & Compliance)</span>
+        <span class="agent-tag">OWASP & Selo de Segurança</span>
+      </div>
+      <p style="font-size: 9pt; margin-bottom: 6px;">Auditoria estática e dinâmica para concessão formal do Selo de Segurança.</p>
+      <ul class="bullets">
+        <li><strong>Proteção Completa:</strong> Bloqueio de SQLi, XSS, CSRF, IDOR e Mass Assignment.</li>
+        <li><strong>Segredos:</strong> Isolamento absoluto em <code>.env</code>; proibição de <code>DEBUG=True</code>.</li>
+        <li><strong>Headers:</strong> HSTS, CSP, X-Frame-Options e SameSite nos cookies.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-header">3. O Selo de Segurança (Critérios de Certificação)</h2>
+    
+    <div class="callout security avoid-break">
+      <div class="callout-title">🛡️ Status: Selo de Segurança Obrigatório</div>
+      Nenhum código é liberado para VPS sem a validação do Guardian:
+      <table style="margin-top: 8px;">
+        <tr>
+          <th>Item OWASP</th>
+          <th>Regra Técnica</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>A01: Broken Access Control</td>
+          <td>Isolamento rígido por Tenant e usuário autenticado</td>
+          <td>Aprovado</td>
+        </tr>
+        <tr>
+          <td>A02: Cryptographic Failures</td>
+          <td>Hash de senhas com Argon2 / PBKDF2 e HTTPS forçado</td>
+          <td>Aprovado</td>
+        </tr>
+        <tr>
+          <td>A03: Injection (SQLi/XSS)</td>
+          <td>ORM parametrizado nativo; zero interpolação de strings</td>
+          <td>Aprovado</td>
+        </tr>
+        <tr>
+          <td>A04: Insecure Design</td>
+          <td>Rate limiting em logins, registros e rotas de checkout</td>
+          <td>Aprovado</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- PÁGINA 3: DEPLOY NA VPS SEM DOCKER -->
+  <div class="page-break"></div>
+
+  <div class="page-content">
+    <h2 class="section-header">4. Deploy em VPS Bare-Metal (100% Sem Docker)</h2>
+    
+    <p>A hospedagem direta no sistema operacional Linux (Ubuntu/Debian) elimina o consumo excessivo de memória RAM e a latência de contêineres, aproveitando 100% da CPU do servidor.</p>
+
+    <h3 class="sub-header">Topologia no Servidor:</h3>
+    <table>
+      <tr>
+        <th>Serviço</th>
+        <th>Tecnologia</th>
+        <th>Comunicação</th>
+        <th>Papel</th>
+      </tr>
+      <tr>
+        <td><strong>Web Server & SSL</strong></td>
+        <td>Nginx + Certbot</td>
+        <td>Portas 80 / 443</td>
+        <td>Reverse Proxy, Cache Estático e Gzip</td>
+      </tr>
+      <tr>
+        <td><strong>Backend API</strong></td>
+        <td>Gunicorn + Systemd</td>
+        <td><code>/run/gunicorn.sock</code></td>
+        <td>Daemon Django via Unix Socket de baixa latência</td>
+      </tr>
+      <tr>
+        <td><strong>Frontend SSR</strong></td>
+        <td>PM2 + Node.js</td>
+        <td><code>127.0.0.1:3000</code></td>
+        <td>Cluster Next.js com restart automático</td>
+      </tr>
+      <tr>
+        <td><strong>Fila Assíncrona</strong></td>
+        <td>Celery + Redis</td>
+        <td>Localhost</td>
+        <td>Disparo de e-mails, webhooks e relatórios</td>
+      </tr>
+      <tr>
+        <td><strong>Banco de Dados</strong></td>
+        <td>MySQL 8.x Nativo</td>
+        <td><code>127.0.0.1:3306</code></td>
+        <td>InnoDB Buffer Pool calibrado + Backup diário cron</td>
+      </tr>
+    </table>
+
+    <h3 class="sub-header">Script de Deploy Zero-Downtime:</h3>
+    <pre><code>#!/bin/bash
+set -e
+echo ">>> Iniciando Deploy Zero-Downtime..."
+cd /var/www/meu-app
+git pull origin main
+
+# 1. Backend
+source backend/venv/bin/activate
+pip install -r backend/requirements.txt
+python backend/manage.py migrate
+python backend/manage.py collectstatic --noinput
+sudo systemctl reload gunicorn
+
+# 2. Frontend
+cd frontend
+npm ci && npm run build
+pm2 reload ecosystem.config.js --env production
+
+echo ">>> Deploy Concluído com Sucesso!"</code></pre>
+
+    <h3 class="sub-header">Comandos Úteis de Monitoramento na VPS:</h3>
+    <pre><code># Ver status dos serviços
+sudo systemctl status gunicorn.service
+pm2 status
+sudo systemctl status nginx
+
+# Acompanhar logs em tempo real
+sudo journalctl -u gunicorn.service -f
+pm2 logs
+sudo tail -f /var/log/nginx/error.log</code></pre>
+  </div>
+
+</body>
+</html>

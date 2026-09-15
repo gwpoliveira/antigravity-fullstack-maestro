@@ -1,0 +1,27 @@
+[Unit]
+Description=Celery Worker for Django Application (Bare-Metal)
+After=network.target mysql.service redis.service
+
+[Service]
+Type=forking
+User=ubuntu
+Group=www-data
+WorkingDirectory=/var/www/meu-app/backend
+EnvironmentFile=/var/www/meu-app/backend/.env
+ExecStart=/var/www/meu-app/backend/venv/bin/celery multi start worker1 \
+          -A core \
+          --pidfile=/var/run/celery/%n.pid \
+          --logfile=/var/log/celery/%n%I.log \
+          --loglevel=INFO
+ExecStop=/var/www/meu-app/backend/venv/bin/celery multi stopwait worker1 \
+         --pidfile=/var/run/celery/%n.pid
+ExecReload=/var/www/meu-app/backend/venv/bin/celery multi restart worker1 \
+           -A core \
+           --pidfile=/var/run/celery/%n.pid \
+           --logfile=/var/log/celery/%n%I.log \
+           --loglevel=INFO
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

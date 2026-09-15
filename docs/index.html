@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maestro & Esquadrão Full Stack | Documentação Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0d14;
+      --bg-surface: #111726;
+      --bg-card: rgba(18, 24, 38, 0.7);
+      --bg-card-hover: rgba(28, 38, 58, 0.8);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(99, 102, 241, 0.4);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.2);
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* Sidebar Navigation */
+    aside.sidebar {
+      width: 290px;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-subtle);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 28px 20px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), #4338ca);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 16px var(--primary-glow);
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    .nav-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin: 18px 0 8px 8px;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--text-main);
+      border-left: 3px solid var(--primary);
+    }
+
+    /* Main Content */
+    main.content {
+      flex: 1;
+      padding: 40px 60px;
+      max-width: 1200px;
+    }
+
+    header.hero {
+      margin-bottom: 48px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--border-active);
+      border-radius: 9999px;
+      color: #c7d2fe;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+
+    /* Grid of Subagents */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-active);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card-bullets {
+      list-style: none;
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+    .card-bullets li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-bullets li::before {
+      content: "•";
+      color: var(--emerald);
+      font-weight: bold;
+    }
+
+    /* Section Styles */
+    section.section-block {
+      margin-bottom: 60px;
+      scroll-margin-top: 30px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Code Block with Copy */
+    .code-box {
+      background: #0d111c;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 18px 0;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: var(--font-main);
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    pre {
+      padding: 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #e2e8f0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    /* Security Seal Badge */
+    .security-badge-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 78, 59, 0.2));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .security-shield {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--emerald), #047857);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 10px 24px var(--emerald-glow);
+      flex-shrink: 0;
+    }
+
+    .security-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ecfdf5;
+      margin-bottom: 4px;
+    }
+
+    .security-info p {
+      font-size: 13.5px;
+      color: #a7f3d0;
+    }
+
+    /* Prompts Interactive Box */
+    .prompt-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .prompt-text {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      font-style: italic;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">👑</div>
+      <div>
+        <div class="brand-title">Maestro Hub</div>
+        <div class="brand-subtitle">Esquadrão Full Stack</div>
+      </div>
+    </div>
+
+    <div class="nav-label">Geral</div>
+    <a href="#top" class="nav-link active">Visão Geral</a>
+    <a href="#subagents" class="nav-link">Os 6 Subagentes</a>
+    
+    <div class="nav-label">Pilares de Qualidade</div>
+    <a href="#security-seal" class="nav-link">Selo de Segurança</a>
+    <a href="#vps-nodocker" class="nav-link">Deploy VPS (Zero Docker)</a>
+    <a href="#testing-qa" class="nav-link">Testes & QA</a>
+
+    <div class="nav-label">Operação</div>
+    <a href="#prompts" class="nav-link">Playbook de Prompts</a>
+    <a href="#commands" class="nav-link">Comandos Rápidos VPS</a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content" id="top">
+    <header class="hero">
+      <div class="badge-pill">⚡ Sistema Operacional de Agentes IA • Nível Silicon Valley</div>
+      <h1>Maestro & Subagentes Especialistas</h1>
+      <p class="hero-lead">
+        Ecossistema sob medida para desenvolvimento <strong>Full Stack (Python/Django, React/Next.js, MySQL 8.x)</strong>, 
+        focado em <strong>SaaS, E-commerce, Landing Pages, Apps e Jogos</strong> com Selo de Segurança, testes automatizados e deploy bare-metal em VPS.
+      </p>
+    </header>
+
+    <!-- Subagents Grid -->
+    <section class="section-block" id="subagents">
+      <h2 class="section-title">👥 O Esquadrão Especialista</h2>
+      <p class="section-desc">Cada subagente domina uma camada técnica sem perda de contexto ou retrabalho.</p>
+
+      <div class="agent-grid">
+        <!-- Maestro -->
+        <div class="card" style="border-color: rgba(99, 102, 241, 0.5);">
+          <div class="card-icon" style="background: rgba(99, 102, 241, 0.15);">👑</div>
+          <span class="card-tag">Orquestrador & Tech Lead</span>
+          <h3 class="card-title">MAESTRO</h3>
+          <p class="card-desc">Planeja, decompõe requisitos, aciona especialistas na sequência exata e só aprova após testes e segurança.</p>
+          <ul class="card-bullets">
+            <li>Decomposição em épicos técnicos</li>
+            <li>Eliminação de redundâncias</li>
+            <li>Garantia de entrega ponta a ponta</li>
+          </ul>
+        </div>
+
+        <!-- Django & MySQL -->
+        <div class="card">
+          <div class="card-icon">🐍</div>
+          <span class="card-tag">Backend & Dados</span>
+          <h3 class="card-title">Django & MySQL</h3>
+          <p class="card-desc">APIs de baixa latência com Django Ninja/DRF, modelagem transacional MySQL e isolamento multi-tenant.</p>
+          <ul class="card-bullets">
+            <li>Zero N+1 (`select_related`/`prefetch`)</li>
+            <li>Concorrência com `select_for_update`</li>
+            <li>Campos monetários em `DecimalField`</li>
+          </ul>
+        </div>
+
+        <!-- Next.js -->
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <span class="card-tag">Frontend & Design</span>
+          <h3 class="card-title">Next.js & UI/UX</h3>
+          <p class="card-desc">React Server Components, Landing Pages com alta conversão, Dark Mode luxuoso e micro-interações táteis.</p>
+          <ul class="card-bullets">
+            <li>Paleta Obsidian & Acentos Neon</li>
+            <li>Tipografia nobre (Plus Jakarta Sans)</li>
+            <li>Dashboards SaaS com gráficos e KPIs</li>
+          </ul>
+        </div>
+
+        <!-- Apps & Games -->
+        <div class="card">
+          <div class="card-icon">🎮</div>
+          <span class="card-tag">Mobile & Canvas</span>
+          <h3 class="card-title">Apps & Games</h3>
+          <p class="card-desc">PWAs instaláveis com cache offline e jogos em HTML5 Canvas/PixiJS fluídos a 60 FPS com gamificação.</p>
+          <ul class="card-bullets">
+            <li>Service Worker e Touch-First</li>
+            <li>Game Loop com delta time (`dt`)</li>
+            <li>Sistemas de streaks, roletas e XP</li>
+          </ul>
+        </div>
+
+        <!-- Guardian -->
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <span class="card-tag">Segurança & OWASP</span>
+          <h3 class="card-title">Guardian Security</h3>
+          <p class="card-desc">Auditoria contínua de vulnerabilidades OWASP Top 10, sanitização e concessão do Selo de Segurança.</p>
+          <ul class="card-bullets">
+            <li>Varredura contra SQLi, XSS e CSRF</li>
+            <li>Isolamento absoluto de variáveis `.env`</li>
+            <li>Headers HSTS, CSP e X-Frame-Options</li>
+          </ul>
+        </div>
+
+        <!-- VPS Sysadmin -->
+        <div class="card">
+          <div class="card-icon">🐧</div>
+          <span class="card-tag">Infra Bare-Metal</span>
+          <h3 class="card-title">VPS Sysadmin</h3>
+          <p class="card-desc">Deploy de altíssima performance direto no Linux Ubuntu/Debian, 100% sem o overhead do Docker.</p>
+          <ul class="card-bullets">
+            <li>Nginx com SSL Certbot e HTTP/2</li>
+            <li>Gunicorn via Unix Socket no Systemd</li>
+            <li>Next.js em cluster com PM2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Seal Section -->
+    <section class="section-block" id="security-seal">
+      <h2 class="section-title">🛡️ O Selo de Segurança</h2>
+      <p class="section-desc">Padrão de certificação obrigatório antes de qualquer liberação de código para produção.</p>
+
+      <div class="security-badge-banner">
+        <div class="security-shield">🛡️</div>
+        <div class="security-info">
+          <h3>Certificação Ativa: Selo de Segurança Antigravity</h3>
+          <p>Toda funcionalidade passa por verificação estática contra injeção de dados, IDOR entre tenants e proteção de segredos.</p>
+        </div>
+      </div>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>Checklist Automatizado do Guardian</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        </div>
+        <pre><code># Comandos de auditoria rápida executados pelo Guardian:
+pip-audit                   # Checagem de CVEs nas dependências Python
+npm audit --audit-level=high # Checagem de vulnerabilidades no Next.js
+python manage.py check --deploy # Verificação de segurança nativa do Django</code></pre>
+      </div>
+    </section>
+
+    <!-- VPS No-Docker Section -->
+    <section class="section-block" id="vps-nodocker">
+      <h2 class="section-title">🐧 Deploy em VPS Bare-Metal (100% Sem Docker)</h2>
+      <p class="section-desc">Extraia 100% da performance do hardware sem consumo excessivo de RAM por contêineres.</p>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>Script de Deploy Zero-Downtime (/var/www/meu-app/deploy.sh)</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        </div>
+        <pre><code>#!/bin/bash
+set -e
+echo ">>> Iniciando Atualização Zero-Downtime..."
+git pull origin main
+
+# Backend Django
+source backend/venv/bin/activate
+pip install -r backend/requirements.txt
+python backend/manage.py migrate
+python backend/manage.py collectstatic --noinput
+sudo systemctl reload gunicorn
+
+# Frontend Next.js
+cd frontend
+npm ci && npm run build
+pm2 reload ecosystem.config.js --env production
+
+echo ">>> Deploy Concluído com Sucesso!"</code></pre>
+      </div>
+    </section>
+
+    <!-- Prompts Playbook -->
+    <section class="section-block" id="prompts">
+      <h2 class="section-title">💡 Playbook de Prompts para o Antigravity</h2>
+      <p class="section-desc">Exemplos testados para iniciar tarefas de alta complexidade com os agentes:</p>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>💼 Novo Módulo SaaS com Pagamentos</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copiar Prompt</button>
+        </div>
+        <div class="prompt-text">
+          "Maestro, preciso criar o módulo de faturamento recorrente com planos (Mensal e Anual). O backend Django deve processar webhooks de pagamento de forma idempotente e salvar no MySQL com isolamento por Tenant. O frontend Next.js precisa de uma tabela de preços comparativa com toggle e badge de mais popular, além do checkout com validações. Gere os testes com pytest e a checagem do Selo de Segurança."
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>🛍️ Página de E-commerce com Estoque Atômico</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copiar Prompt</button>
+        </div>
+        <div class="prompt-text">
+          "Maestro, lidere o desenvolvimento da página de produto com galeria de imagens interativa, seletor de variantes e drawer lateral de carrinho de compras. No backend Django, garanta que o estoque seja debitado com controle de concorrência atômico no MySQL para impedir vendas duplicadas."
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span>🐧 Configuração de VPS para Novo Domínio</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copiar Prompt</button>
+        </div>
+        <div class="prompt-text">
+          "Subagente VPS, configure o deploy do meu novo projeto para o domínio meudominio.com.br. Entregue o arquivo do Nginx com SSL e cache estático, os arquivos de Systemd para o Gunicorn e o ecosystem.config.js para o Next.js no PM2, prontos para rodar no Ubuntu sem Docker."
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function copyCode(button) {
+      const code = button.closest('.code-box').querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const original = button.innerText;
+        button.innerText = 'Copiado!';
+        setTimeout(() => button.innerText = original, 2000);
+      });
+    }
+
+    function copyPrompt(button) {
+      const text = button.closest('.prompt-card').querySelector('.prompt-text').innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.innerText;
+        button.innerText = 'Copiado!';
+        setTimeout(() => button.innerText = original, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

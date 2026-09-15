@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn Socket for Django Application
+PartOf=gunicorn.service
+
+[Socket]
+ListenStream=/run/gunicorn.sock
+SocketUser=www-data
+SocketGroup=www-data
+SocketMode=660
+
+[Install]
+WantedBy=sockets.target

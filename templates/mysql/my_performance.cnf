@@ -1,0 +1,33 @@
+# Configuração de Alta Performance e Segurança MySQL 8.x (Bare-Metal)
+# Salvar em /etc/mysql/conf.d/performance_hardening.cnf
+
+[mysqld]
+# 1. Segurança de Rede (Obrigatório: Nunca expor porta 3306 à internet)
+bind-address = 127.0.0.1
+mysqlx-bind-address = 127.0.0.1
+
+# 2. Codificação Completa para Emojis e Internacionalização
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# 3. Otimização do InnoDB (Ajuste innodb_buffer_pool_size de acordo com a RAM da VPS)
+# Para VPS de 2GB RAM: use 1G
+# Para VPS de 4GB RAM: use 2G
+# Para VPS de 8GB RAM: use 5G
+innodb_buffer_pool_size = 1G
+innodb_log_file_size = 256M
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method = O_DIRECT
+innodb_file_per_table = 1
+
+# 4. Conexões e Threads
+max_connections = 150
+max_connect_errors = 1000
+thread_cache_size = 16
+table_open_cache = 2000
+
+# 5. Diagnóstico e Registro de Queries Lentas (Slow Query Log)
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+long_query_time = 1.0
+log_queries_not_using_indexes = 0
