@@ -58,26 +58,29 @@ Toda demanda, projeto ou tarefa submetida é recebida e coordenada pelo **Agente
 
 ---
 
-## 3. CATÁLOGO DE SUBAGENTES
+## 3. CATÁLOGO DE SUBAGENTES & SKILLS VINCULADAS
 
-| Subagente | Arquivo de Definição | Especialidade Principal |
-| :--- | :--- | :--- |
-| **Maestro** | [MAESTRO.md](file:///.agents/orchestrator/MAESTRO.md) | Orquestração, planejamento, decomposição de tarefas e garantia de entrega. |
-| **Django & MySQL** | [subagent_django_mysql.md](file:///.agents/subagents/subagent_django_mysql.md) | Python, Django, DRF, Ninja, MySQL Queries, Modelagem e Multi-tenancy. |
-| **Next.js & Frontend** | [subagent_nextjs_frontend.md](file:///.agents/subagents/subagent_nextjs_frontend.md) | Next.js App Router, React, Tailwind/CSS, Design Premium e Landing Pages. |
-| **Apps & Games** | [subagent_apps_games.md](file:///.agents/subagents/subagent_apps_games.md) | PWAs, Mobile Wrappers, Canvas 2D, PixiJS, Three.js e Gamificação. |
-| **Guardian (Segurança)** | [subagent_security_guardian.md](file:///.agents/subagents/subagent_security_guardian.md) | Auditoria de segurança, OWASP, Pentest preliminar e Selo de Segurança. |
-| **QA & Testes** | [subagent_qa_testing.md](file:///.agents/subagents/subagent_qa_testing.md) | Pytest, Playwright, Vitest, TDD/BDD e validação de regressão. |
-| **VPS Sysadmin** | [subagent_vps_nodocker.md](file:///.agents/subagents/subagent_vps_nodocker.md) | Nginx, Systemd, Gunicorn, PM2, MySQL nativo, SSL e automação de VPS. |
+| Subagente | Arquivo de Definição | Skill Dedicada | Especialidade Principal |
+| :--- | :--- | :--- | :--- |
+| **Maestro** | [MAESTRO.md](file:///.agents/orchestrator/MAESTRO.md) | `maestro-orchestrator` | Orquestração, planejamento, decomposição de tarefas e garantia de entrega. |
+| **Django & MySQL** | [subagent_django_mysql.md](file:///.agents/subagents/subagent_django_mysql.md) | [`django-mysql-saas`](file:///.agents/skills/django-mysql-saas/SKILL.md) | Python, Django, DRF/Ninja, Multi-tenancy, transações atômicas e Celery. |
+| **Next.js & Frontend** | [subagent_nextjs_frontend.md](file:///.agents/subagents/subagent_nextjs_frontend.md) | [`premium-ui-system`](file:///.agents/skills/premium-ui-system/SKILL.md) | Next.js App Router, React, Tailwind/CSS, Design Obsidian/Neon e Landing Pages. |
+| **Apps & Games** | [subagent_apps_games.md](file:///.agents/subagents/subagent_apps_games.md) | [`game-canvas-pwa`](file:///.agents/skills/game-canvas-pwa/SKILL.md) | PWAs 100% offline, Canvas 2D, PixiJS, Three.js, Game Loops e Gamificação. |
+| **Guardian (Segurança)** | [subagent_security_guardian.md](file:///.agents/subagents/subagent_security_guardian.md) | [`security-seal-audit`](file:///.agents/skills/security-seal-audit/SKILL.md) | Auditoria de segurança OWASP Top 10, sanitização e Selo de Segurança. |
+| **QA & Testes** | [subagent_qa_testing.md](file:///.agents/subagents/subagent_qa_testing.md) | [`qa-automated-testing`](file:///.agents/skills/qa-automated-testing/SKILL.md) | Pytest-Django, FactoryBoy, testes cross-tenant e Playwright E2E. |
+| **VPS Sysadmin** | [subagent_vps_nodocker.md](file:///.agents/subagents/subagent_vps_nodocker.md) | [`vps-nodocker-deploy`](file:///.agents/skills/vps-nodocker-deploy/SKILL.md) | Nginx, Systemd, Gunicorn, PM2, MySQL nativo, SSL e automação de VPS. |
 
 ---
 
-## 4. FLUXO DE TRABALHO PADRÃO (WORKFLOW)
+## 4. FLUXO DE TRABALHO & PROTOCOLO DE HANDOFF
 
-1. **Recepção e Diagnóstico (Maestro)**: O Maestro analisa o pedido do usuário, define a arquitetura e cria a lista de tarefas técnicas.
-2. **Construção do Core (Django & MySQL + Next.js)**:
-   - Django & MySQL estrutura entidades, endpoints e validações.
-   - Next.js projeta a interface ultra-premium e integra com a API.
-3. **Validação de Qualidade (QA)**: Implementa e roda os testes automatizados.
-4. **Inspeção de Segurança (Guardian)**: Varre o código, valida autorizações e emite o Selo de Segurança.
-5. **Preparação para Produção (VPS Sysadmin)**: Fornece os arquivos de configuração (Systemd, Nginx, PM2, MySQL) e scripts prontos para rodar no terminal da VPS sem Docker.
+1. **Recepção e Diagnóstico (Maestro)**:
+   - O Maestro analisa a demanda, decompõe em pacotes técnicos e aciona os especialistas.
+2. **Construção do Core (Django & Next.js)**:
+   - **Handoff Backend ➔ Frontend**: Django exporta schemas e tipos de dados das entidades para o Next.js integrar sem descompasso.
+3. **Validação de Qualidade (QA)**:
+   - **Handoff Frontend ➔ QA**: Next.js fornece seletores `data-testid` em botões e formulários críticos para a suíte E2E do Playwright e testes de API com Pytest.
+4. **Inspeção de Segurança (Guardian)**:
+   - **Handoff QA ➔ Guardian**: Com os testes unitários passando (85%+ cobertura), o Guardian varre vulnerabilidades e emite o Selo de Segurança.
+5. **Preparação para Produção (VPS Sysadmin)**:
+   - **Handoff Guardian ➔ Sysadmin**: Com o Selo aprovado, o Sysadmin gera os arquivos de configuração (Systemd, Nginx, PM2, MySQL nativo) prontos para colar no terminal da VPS sem Docker.

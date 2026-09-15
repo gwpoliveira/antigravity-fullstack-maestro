@@ -31,14 +31,14 @@ Clone o repositório e rode o instalador global de acordo com o seu sistema oper
 
 ### No Windows (PowerShell):
 ```powershell
-git clone https://github.com/SEU_USUARIO/antigravity-fullstack-maestro.git
+git clone https://github.com/gwpoliveira/antigravity-fullstack-maestro.git
 cd antigravity-fullstack-maestro
 .\install.ps1
 ```
 
 ### No Linux ou macOS (Bash):
 ```bash
-git clone https://github.com/SEU_USUARIO/antigravity-fullstack-maestro.git
+git clone https://github.com/gwpoliveira/antigravity-fullstack-maestro.git
 cd antigravity-fullstack-maestro
 chmod +x install.sh && ./install.sh
 ```
@@ -54,36 +54,36 @@ graph TD
     User["👨‍💻 Você (Desenvolvedor)"] --> Maestro["👑 MAESTRO (Tech Lead & Orquestrador)"]
     
     subgraph "Construção de Produto"
-        Maestro --> S1["🐍 Django & MySQL Architect<br/>(APIs, Concorrência, N+1 Free, Multi-tenancy)"]
-        Maestro --> S2["⚡ Next.js & Frontend Master<br/>(App Router, UI/UX Premium, Landing Pages)"]
-        Maestro --> S3["🎮 Apps & Games Specialist<br/>(PWAs, Canvas 2D/3D a 60 FPS, Gamificação)"]
+        Maestro --> S1["🐍 Django & MySQL Architect<br/>(Skill: django-mysql-saas)"]
+        Maestro --> S2["⚡ Next.js & Frontend Master<br/>(Skill: premium-ui-system)"]
+        Maestro --> S3["🎮 Apps & Games Specialist<br/>(Skill: game-canvas-pwa)"]
     end
     
     subgraph "Gates de Qualidade Inegociáveis"
-        S1 --> S4["🧪 QA & Test Automation<br/>(Pytest, Playwright, Vitest)"]
+        S1 --> S4["🧪 QA & Test Automation<br/>(Skill: qa-automated-testing)"]
         S2 --> S4
         S3 --> S4
-        S4 --> S5["🛡️ Guardian Security<br/>(OWASP Top 10 & Selo de Segurança)"]
+        S4 --> S5["🛡️ Guardian Security<br/>(Skill: security-seal-audit)"]
     end
 
     subgraph "Infraestrutura de Produção"
-        S5 --> S6["🐧 VPS Bare-Metal Sysadmin<br/>(Nginx, Systemd, PM2, MySQL - SEM Docker)"]
+        S5 --> S6["🐧 VPS Bare-Metal Sysadmin<br/>(Skill: vps-nodocker-deploy)"]
     end
 ```
 
 ---
 
-## 👥 OS 6 SUBAGENTES ESPECIALISTAS
+## 👥 OS 6 SUBAGENTES & SKILLS ESPECIALIZADAS
 
-| Subagente | Especialidade Principal | Regras Mandatórias |
-| :--- | :--- | :--- |
-| **👑 Maestro** | Tech Lead & Orquestrador Geral | Decomposição técnica, delegação precisa e aprovação com duplo portão. |
-| **🐍 Django & MySQL** | Backend, ORM & Banco Relacional | Zero N+1 (`select_related`/`prefetch`), concorrência atômica e tipos estritos. |
-| **⚡ Next.js & React** | Frontend, UI/UX & Conversão | Paleta Obsidian dark mode, micro-interações táteis e Core Web Vitals no talo. |
-| **🎮 Apps & Games** | Mobile Híbrido/PWA & Web Games | PWA com cache offline, game loop com delta time a 60 FPS e streaks/gamificação. |
-| **🧪 QA & Testes** | Automação e Pirâmide de Testes | Suíte `pytest-django`, testes de componentes e Playwright E2E com mocks. |
-| **🛡️ Guardian** | Cibersegurança & Compliance | Auditoria contínua OWASP Top 10 e emissão formal do **Selo de Segurança**. |
-| **🐧 VPS Sysadmin** | DevOps Bare-Metal (Zero Docker) | Nginx via Unix Socket para Gunicorn, Next.js via PM2 e MySQL nativo no host. |
+| Subagente | Skill Oficial Vinculada | Especialidade Principal | Regras Mandatórias |
+| :--- | :--- | :--- | :--- |
+| **👑 Maestro** | `maestro-orchestrator` | Tech Lead & Orquestrador Geral | Decomposição técnica, protocolo de handoff e aprovação com duplo portão. |
+| **🐍 Django & MySQL** | [`django-mysql-saas`](.agents/skills/django-mysql-saas) | Backend, ORM & Banco Relacional | Zero N+1 (`select_related`/`prefetch`), concorrência atômica e tipos estritos. |
+| **⚡ Next.js & React** | [`premium-ui-system`](.agents/skills/premium-ui-system) | Frontend, UI/UX & Conversão | Paleta Obsidian dark mode, micro-interações táteis e Core Web Vitals no talo. |
+| **🎮 Apps & Games** | [`game-canvas-pwa`](.agents/skills/game-canvas-pwa) | Mobile Híbrido/PWA & Web Games | PWA com cache offline, game loop com delta time a 60 FPS e streaks/gamificação. |
+| **🧪 QA & Testes** | [`qa-automated-testing`](.agents/skills/qa-automated-testing) | Automação e Pirâmide de Testes | Suíte `pytest-django`, testes de componentes e Playwright E2E com mocks. |
+| **🛡️ Guardian** | [`security-seal-audit`](.agents/skills/security-seal-audit) | Cibersegurança & Compliance | Auditoria contínua OWASP Top 10 e emissão formal do **Selo de Segurança**. |
+| **🐧 VPS Sysadmin** | [`vps-nodocker-deploy`](.agents/skills/vps-nodocker-deploy) | DevOps Bare-Metal (Zero Docker) | Nginx via Unix Socket para Gunicorn, Next.js via PM2 e MySQL nativo no host. |
 
 ---
 

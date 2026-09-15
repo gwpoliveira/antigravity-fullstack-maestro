@@ -29,12 +29,14 @@ cat << 'EOF' > "$PLUGIN_DIR/plugin.json"
 }
 EOF
 
-# Skills base
-for skill in vps-nodocker-deploy security-seal-audit premium-ui-system; do
-  if [ -f "$SCRIPT_DIR/.agents/skills/$skill/SKILL.md" ]; then
+# Copiar todas as Skills especializadas dinamicamente
+for skill_dir in "$SCRIPT_DIR/.agents/skills"/*; do
+  if [ -d "$skill_dir" ] && [ -f "$skill_dir/SKILL.md" ]; then
+    skill=$(basename "$skill_dir")
     mkdir -p "$PLUGIN_DIR/skills/$skill" "$SKILLS_DIR/$skill"
-    cp "$SCRIPT_DIR/.agents/skills/$skill/SKILL.md" "$PLUGIN_DIR/skills/$skill/SKILL.md"
-    cp "$SCRIPT_DIR/.agents/skills/$skill/SKILL.md" "$SKILLS_DIR/$skill/SKILL.md"
+    cp "$skill_dir/SKILL.md" "$PLUGIN_DIR/skills/$skill/SKILL.md"
+    cp "$skill_dir/SKILL.md" "$SKILLS_DIR/$skill/SKILL.md"
+    echo "   -> Skill instalada: $skill"
   fi
 done
 
