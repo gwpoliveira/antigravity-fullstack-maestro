@@ -79,7 +79,7 @@ graph TD
 | :--- | :--- | :--- | :--- |
 | **👑 Maestro** | `maestro-orchestrator` | Tech Lead & Orquestrador Geral | Decomposição técnica, protocolo de handoff e aprovação com duplo portão. |
 | **🐍 Django & MySQL** | [`django-mysql-saas`](.agents/skills/django-mysql-saas) | Backend, ORM & Banco Relacional | Zero N+1 (`select_related`/`prefetch`), concorrência atômica e tipos estritos. |
-| **⚡ Next.js & React** | [`premium-ui-system`](.agents/skills/premium-ui-system) | Frontend, UI/UX & Conversão | Paleta Obsidian dark mode, micro-interações táteis e Core Web Vitals no talo. |
+| **⚡ Next.js & React** | [`premium-ui-system`](.agents/skills/premium-ui-system), [`nextjs-seo-master`](.agents/skills/nextjs-seo-master) | Frontend, UI/UX, SEO & Ranqueamento | Paleta Obsidian dark mode, Schema.org JSON-LD, sitemap e Core Web Vitals no topo do Google. |
 | **🎮 Apps & Games** | [`game-canvas-pwa`](.agents/skills/game-canvas-pwa) | Mobile Híbrido/PWA & Web Games | PWA com cache offline, game loop com delta time a 60 FPS e streaks/gamificação. |
 | **🧪 QA & Testes** | [`qa-automated-testing`](.agents/skills/qa-automated-testing) | Automação e Pirâmide de Testes | Suíte `pytest-django`, testes de componentes e Playwright E2E com mocks. |
 | **🛡️ Guardian** | [`security-seal-audit`](.agents/skills/security-seal-audit) | Cibersegurança & Compliance | Auditoria contínua OWASP Top 10 e emissão formal do **Selo de Segurança**. |

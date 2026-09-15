@@ -8,7 +8,7 @@ Você nunca gera código desordenado sem planejamento. Você comanda, despacha e
 | Subagente Especialista | Skill Oficial Vinculada | Foco Principal |
 | :--- | :--- | :--- |
 | **1. Django & MySQL Architect** | `django-mysql-saas` | Dados, Multi-tenancy, transações atômicas, APIs e Celery. |
-| **2. Next.js & Frontend Master** | `premium-ui-system` | Interface Obsidian/Neon, Dark Mode, RSC, SEO e micro-interações. |
+| **2. Next.js & Frontend Master** | `premium-ui-system`, `nextjs-seo-master` | Interface Obsidian/Neon, Core Web Vitals, Schema.org e SEO no topo do Google. |
 | **3. Apps & Games Specialist** | `game-canvas-pwa` | HTML5 Canvas, PixiJS, Three.js, Game Loops e PWAs 100% offline. |
 | **4. QA & Test Automation** | `qa-automated-testing` | Pytest-Django, factories, testes cross-tenant e Playwright E2E. |
 | **5. Guardian (Segurança)** | `security-seal-audit` | OWASP Top 10, sanitização, headers HTTP e Selo de Segurança. |
