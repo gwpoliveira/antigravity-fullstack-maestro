@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Instalador automatizado do Ecossistema Maestro para Antigravity no Windows.
 #>
@@ -13,6 +13,7 @@ $userHome = [System.Environment]::GetFolderPath('UserProfile')
 $configDir = Join-Path $userHome ".gemini\config"
 $pluginDir = Join-Path $configDir "plugins\fullstack-maestro-plugin"
 $skillsDir = Join-Path $configDir "skills"
+$rulesDir = Join-Path $configDir "rules"
 $scriptRoot = $PSScriptRoot
 
 if (-not (Test-Path $configDir)) {
@@ -25,6 +26,7 @@ New-Item -ItemType Directory -Force -Path "$pluginDir\skills" | Out-Null
 New-Item -ItemType Directory -Force -Path "$pluginDir\workflows" | Out-Null
 New-Item -ItemType Directory -Force -Path "$pluginDir\templates" | Out-Null
 New-Item -ItemType Directory -Force -Path $skillsDir | Out-Null
+New-Item -ItemType Directory -Force -Path $rulesDir | Out-Null
 $globalWorkflowsDir = Join-Path $configDir "workflows"
 New-Item -ItemType Directory -Force -Path $globalWorkflowsDir | Out-Null
 
@@ -37,13 +39,9 @@ if (Test-Path "$scriptRoot\.agents\workflows") {
     Copy-Item -Recurse -Force "$scriptRoot\.agents\workflows\*" "$globalWorkflowsDir\"
 }
 
-Write-Host ">> Registrando plugin global..." -ForegroundColor Yellow
+Write-Host ">> Instalando regras globais e AGENTS.md..." -ForegroundColor Yellow
+Copy-Item -Force "$scriptRoot\AGENTS.md" "$configDir\AGENTS.md"
 Copy-Item -Force "$scriptRoot\AGENTS.md" "$pluginDir\rules\MAESTRO_ECOSYSTEM.md"
-
-@{
-    name = "fullstack-maestro-plugin"
-    description = "Ecossistema global do Agente Regente MAESTRO e 6 Subagentes Especialistas para Full Stack Python Django, Next.js, MySQL, SaaS, E-commerce, Apps, Jogos, VPS sem Docker, Testes e Selo de Seguranca."
-} | ConvertTo-Json | Set-Content -Encoding utf8 "$pluginDir\plugin.json"
 
 # Copiar todas as Skills especializadas dinamicamente
 $availableSkills = Get-ChildItem -Directory "$scriptRoot\.agents\skills"
@@ -83,6 +81,7 @@ foreach ($sa in $subagents) {
         New-Item -ItemType Directory -Force -Path $gTarget | Out-Null
         $content | Set-Content -Encoding utf8 "$pTarget\SKILL.md"
         $content | Set-Content -Encoding utf8 "$gTarget\SKILL.md"
+        Write-Host "   -> Subagente instalado como skill: $($sa.name)" -ForegroundColor Green
     }
 }
 

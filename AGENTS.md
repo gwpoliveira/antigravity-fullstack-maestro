@@ -1,60 +1,57 @@
-# SISTEMA DE AGENTES: MAESTRO & ESQUADRÃO DE ESPECIALISTAS
-
-> **Perfil Operacional**: Desenvolvedor Full Stack Sênior (Python / Django, React.js / Next.js, MySQL).  
-> **Nichos de Atuação**: SaaS Multi-tenant, E-commerce de Alto Desempenho, Landing Pages de Alta Conversão, Aplicativos Web/PWA e Jogos.  
-> **Padrões Mandatórios**: Qualidade Visual & Arquitetural Premium, Selo de Segurança Contínuo (OWASP Top 10), Cobertura Rigorosa de Testes e Deploy em VPS Bare-Metal Linux (100% sem Docker).
+﻿# ECOSSISTEMA DE AGENTES ESPECIALISTAS & MAESTRO (TECH LEAD)
+> **Arquitetura Multi-Agente Corporativa para Antigravity IDE / Gemini CLI**
 
 ---
 
-## 1. HIERARQUIA E ORQUESTRAÇÃO
+## 1. VISÃO GERAL DO ECOSSISTEMA
 
-Toda demanda, projeto ou tarefa submetida é recebida e coordenada pelo **Agente Regente: MAESTRO**. O Maestro decompõe o objetivo em fases técnicas e aciona os **Subagentes Especialistas** na sequência precisa.
+O ecossistema opera sob uma hierarquia de engenharia de software de padrão internacional. O **MAESTRO** atua como Tech Lead e Arquiteto-Chefe, orquestrando 6 subagentes especialistas e suas respectivas skills dedicadas:
 
 ```
-                  ┌─────────────────────────────────────────┐
+                  ┌──────────────────────────────────────────┐
                   │    MAESTRO (Agente Orquestrador & TL)    │
-                  └────────────────────┬────────────────────┘
-                                       │
-        ┌──────────────┬───────────────┼───────────────┬──────────────┐
-        ▼              ▼               ▼               ▼              ▼
- ┌─────────────┐┌─────────────┐ ┌─────────────┐ ┌─────────────┐┌─────────────┐
- │   DJANGO    ││   NEXT.JS   │ │ APPS/GAMES  │ │     QA      ││  GUARDIAN   │
- │   & MYSQL   ││   & REACT   │ │ SPECIALIST  │ │  & TESTES   ││ (SEGURANÇA) │
- └──────┬──────┘└──────┬──────┘ └──────┬──────┘ └──────┬──────┘└──────┬──────┘
-        │              │               │               │              │
-        └──────────────┴───────────────┼───────────────┴──────────────┘
-                                       ▼
-                        ┌─────────────────────────────┐
-                        │   VPS BARE-METAL SYSADMIN   │
-                        │    (Deploy 100% Sem Docker) │
-                        └─────────────────────────────┘
+                  └─────────────────────┬────────────────────┘
+                                        │
+        ┌───────────────┬───────────────┴───────────────┬───────────────┐
+        ▼               ▼               ▼               ▼               ▼
+ ┌──────────────┐┌──────────────┐ ┌──────────────┐ ┌──────────────┐┌──────────────┐
+ │   DJANGO     ││   NEXT.JS    │ │ APPS/GAMES   │ │     QA       ││  GUARDIAN    │
+ │   & MYSQL    ││   & REACT    │ │ SPECIALIST   │ │  & TESTES    ││ (SEGURANÇA)  │
+ └──────┬───────┘└──────┬───────┘ └──────┬───────┘ └──────┬───────┘└──────┬───────┘
+        │               │                │                │               │
+        └───────────────┴────────────────┼────────────────┴───────────────┘
+                                         ▼
+                        ┌──────────────────────────────┐
+                        │   VPS BARE-METAL SYSADMIN    │
+                        │    (Deploy 100% Sem Docker)  │
+                        └──────────────────────────────┘
 ```
 
 ---
 
 ## 2. DIRETRIZES FUNDAMENTAIS DO ECOSSISTEMA
 
-### Regra 1: Selo de Segurança Inegociável (Security by Design)
+### Regra 1: Selo de Segurana Inegociável (Security by Design)
 - Nenhuma funcionalidade é concluída sem passar pelo crivo do **Guardian**.
 - Proteção nativa contra: SQL Injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), Broken Authentication, Mass Assignment e Vazamento de Segredos.
 - Nenhuma credencial em código limpo. Uso estrito de variáveis de ambiente (`.env`).
-- Cabeçalhos de segurança HTTP obrigatórios: `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`.
+- Script automatizado obrigatório: `templates/security/audit_seal.py` aprovado sem ressalvas.
 
 ### Regra 2: Qualidade Visual e UX Premium
-- Nada de layouts genéricos, tipografias padrão de navegador ou cores saturadas primárias (azul/vermelho puro).
-- Paletas calibradas, modo escuro sofisticado, tipografias modernas (Inter, Outfit, Plus Jakarta Sans), micro-interações elegantes, feedback imediato em ações do usuário e responsividade impecável.
+- Nada de layouts genéricos, tipografias padrão de navegador ou cores primárias saturadas.
+- Paletas calibradas, modo escuro sofisticado, tipografias modernas (Inter, Outfit, Plus Jakarta Sans), micro-interações elegantes e responsividade impecável.
 
 ### Regra 3: Infraestrutura VPS sem Docker (Bare-Metal Linux)
 - A infraestrutura opera diretamente nos serviços nativos do Linux (Ubuntu/Debian):
-  - **Reverse Proxy & SSL**: Nginx otimizado com HTTP/2, Gzip/Brotli, cache estático e Certbot (Let's Encrypt).
-  - **Backend Python/Django**: Gunicorn/Uvicorn rodando como daemon gerenciado pelo `systemd` via Unix Socket.
-  - **Frontend Next.js**: Build de produção (`next build`) orquestrado pelo `PM2` em cluster mode ou processo background monitorado.
-  - **Banco de Dados**: MySQL Server instalado nativamente no host, configurado para conexões locais seguras (`127.0.0.1` ou unix socket), com pool de conexões e rotinas diárias de backup (`mysqldump`).
-  - **Segurança de Servidor**: UFW firewall ativo (portas 22, 80, 443 liberadas apenas) e Fail2ban protegendo SSH e endpoints sensíveis.
+  - **Reverse Proxy & SSL**: Nginx otimizado com HTTP/2, Gzip/Brotli, cache estático e Certbot.
+  - **Backend Python/Django**: Gunicorn rodando como daemon gerenciado pelo `systemd` via Unix Socket.
+  - **Frontend Next.js**: Build de produção (`next build`) orquestrado pelo `PM2` em cluster mode.
+  - **Banco de Dados**: MySQL Server instalado nativamente no host (Zero Docker), com pool de conexões e rotinas diárias de backup (`mysqldump`).
+  - **Segurança de Servidor**: UFW firewall ativo (portas 22, 80, 443 liberadas apenas) e Fail2ban protegendo SSH.
 
 ### Regra 4: Testes Automatizados Mandatórios
-- Backend: Suíte de testes com `pytest-django`, cobrindo modelos, signals, views/endpoints de API, autenticação e regras de faturamento/SaaS.
-- Frontend: Testes de componentes com Vitest/Testing Library e testes críticos E2E com Playwright para fluxos como checkout, cadastro e login.
+- Backend: Suíte de testes com `pytest-django`, cobrindo modelos, views/endpoints, autenticação e isolamento multi-tenant.
+- Frontend: Testes de componentes com Vitest/Testing Library e testes críticos E2E com Playwright. Cobertura mínima de 85%.
 
 ---
 
@@ -77,10 +74,27 @@ Toda demanda, projeto ou tarefa submetida é recebida e coordenada pelo **Agente
 1. **Recepção e Diagnóstico (Maestro)**:
    - O Maestro analisa a demanda, decompõe em pacotes técnicos e aciona os especialistas.
 2. **Construção do Core (Django & Next.js)**:
-   - **Handoff Backend ➔ Frontend**: Django exporta schemas e tipos de dados das entidades para o Next.js integrar sem descompasso.
+   - **Handoff Backend -> Frontend**: Django exporta schemas das entidades para o Next.js integrar sem descompasso.
 3. **Validação de Qualidade (QA)**:
-   - **Handoff Frontend ➔ QA**: Next.js fornece seletores `data-testid` em botões e formulários críticos para a suíte E2E do Playwright e testes de API com Pytest.
+   - **Handoff Frontend -> QA**: Next.js fornece seletores `data-testid` em botões e formulários críticos para a suíte E2E do Playwright.
 4. **Inspeção de Segurança (Guardian)**:
-   - **Handoff QA ➔ Guardian**: Com os testes unitários passando (85%+ cobertura), o Guardian varre vulnerabilidades e emite o Selo de Segurança.
+   - **Handoff QA -> Guardian**: Com os testes passando (85%+ cobertura), o Guardian roda o script SAST e emite o Selo de Segurança.
 5. **Preparação para Produção (VPS Sysadmin)**:
-   - **Handoff Guardian ➔ Sysadmin**: Com o Selo aprovado, o Sysadmin gera os arquivos de configuração (Systemd, Nginx, PM2, MySQL nativo) prontos para colar no terminal da VPS sem Docker.
+   - **Handoff Guardian -> Sysadmin**: Com o Selo aprovado, o Sysadmin gera os arquivos de configuração prontos para a VPS sem Docker.
+
+---
+
+## 5. PROTOCOLO DE REJEIÇÃO AUTOMÁTICA & ROLLBACK (CIRCUITO FECHADO)
+
+Se um portão de qualidade falhar, o pipeline não é forçado:
+- **Falha em QA**: Gera um ticket de rejeição técnico com arquivo e linha com erro, retornando para correção no Backend ou Frontend.
+- **Falha de Segurança**: O script `audit_seal.py` retorna código de saída `1` e bloqueia o Sysadmin de gerar scripts de deploy até a sanitização completa de segredos ou riscos OWASP.
+
+---
+
+## 6. O LEDGER DE ESTADO DO PROJETO (`.agents/PROJECT_STATE.md`)
+
+Todo projeto gerenciado pelo ecossistema mantém um arquivo de registro vivo (`.agents/PROJECT_STATE.md`) que rastreia:
+- Status de cada Quality Gate (Django, Next.js, QA, Guardian, VPS).
+- Histórico de iterações e correções.
+- Mapa de arquivos gerados por camada.
