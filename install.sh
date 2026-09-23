@@ -31,7 +31,7 @@ cp "$SCRIPT_DIR/AGENTS.md" "$PLUGIN_DIR/rules/MAESTRO_ECOSYSTEM.md"
 cat << 'EOF' > "$PLUGIN_DIR/plugin.json"
 {
   "name": "fullstack-maestro-plugin",
-  "description": "Ecossistema global do Agente Regente MAESTRO e 6 Subagentes Especialistas para Full Stack Python Django, Next.js, MySQL, SaaS, E-commerce, Apps, Jogos, VPS sem Docker, Testes e Selo de Segurança."
+  "description": "Ecossistema global do Agente Regente MAESTRO e 7 Subagentes Especialistas para Full Stack Python Django, Next.js, MySQL, SaaS, E-commerce, Apps, Jogos, VPS sem Docker, Testes e Selo de Segurança."
 }
 EOF
 

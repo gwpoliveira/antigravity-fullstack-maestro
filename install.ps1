@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 Instalador automatizado do Ecossistema Maestro para Antigravity no Windows.
 #>
@@ -67,7 +67,8 @@ $subagents = @(
     @{ name = 'subagent-apps-games'; file = "$scriptRoot\.agents\subagents\subagent_apps_games.md"; desc = 'Subagente especialista em Apps PWA e Jogos Web 2D/3D (Canvas, PixiJS, Three.js).' },
     @{ name = 'subagent-security-guardian'; file = "$scriptRoot\.agents\subagents\subagent_security_guardian.md"; desc = 'Subagente auditor de seguranca OWASP Top 10 e emissor do Selo de Seguranca.' },
     @{ name = 'subagent-qa-testing'; file = "$scriptRoot\.agents\subagents\subagent_qa_testing.md"; desc = 'Subagente especialista em testes com Pytest-Django, Vitest e Playwright.' },
-    @{ name = 'subagent-vps-nodocker'; file = "$scriptRoot\.agents\subagents\subagent_vps_nodocker.md"; desc = 'Subagente Sysadmin Bare-Metal Linux para VPS com Nginx, Systemd, PM2 e MySQL (Zero Docker).' }
+    @{ name = 'subagent-vps-nodocker'; file = "$scriptRoot\.agents\subagents\subagent_vps_nodocker.md"; desc = 'Subagente Sysadmin Bare-Metal Linux para VPS com Nginx, Systemd, PM2 e MySQL (Zero Docker).' },
+    @{ name = 'subagent-marketing-pitch'; file = "$scriptRoot\.agents\subagents\subagent_marketing_pitch.md"; desc = 'Subagente especialista em Marketing, Pitch Decks executivos, One-Pagers, apresentações corporativas e governamentais, e roteiros de demonstração de software.' }
 )
 
 foreach ($sa in $subagents) {
@@ -87,5 +88,5 @@ foreach ($sa in $subagents) {
 
 Write-Host "============================================================" -ForegroundColor Green
 Write-Host "[OK] INSTALACAO CONCLUIDA COM SUCESSO!" -ForegroundColor Green
-Write-Host "O Maestro e os 6 subagentes estao ativos em qualquer projeto." -ForegroundColor Green
+Write-Host "O Maestro e os 7 subagentes estao ativos em qualquer projeto." -ForegroundColor Green
 Write-Host "============================================================" -ForegroundColor Green
