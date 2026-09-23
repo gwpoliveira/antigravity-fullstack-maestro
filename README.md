@@ -1,7 +1,7 @@
 <div align="center">
 
 # 👑 MAESTRO & FULL STACK AGENT ECOSYSTEM
-### Ecossistema Autônomo de Agente Regente e 7 Subagentes para Antigravity AI
+### Ecossistema Autônomo de Agente Regente e 8 Subagentes para Antigravity AI
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI Validation](https://github.com/gwpoliveira/antigravity-fullstack-maestro/actions/workflows/ci.yml/badge.svg)](https://github.com/gwpoliveira/antigravity-fullstack-maestro/actions)
@@ -17,7 +17,7 @@
 
 [Instalação Rápida](#-instalação-rápida-em-1-comando) •
 [Arquitetura](#-arquitetura-do-ecossistema) •
-[Subagentes](#-os-7-subagentes-especialistas) •
+[Subagentes](#-os-8-subagentes-especialistas) •
 [Selo de Segurança](#-o-selo-de-segurança) •
 [Deploy Bare-Metal](#-deploy-em-vps-bare-metal-zero-docker) •
 [Documentação em PDF](#-documentação-premium-em-pdf)
@@ -60,8 +60,9 @@ graph TD
         Maestro --> S3["🎮 Apps & Games Specialist<br/>(Skill: game-canvas-pwa)"]
     end
     
-    subgraph "Apresentação e Negócios"
+    subgraph "Negócios & Engenharia Documental"
         Maestro --> S7["📢 Marketing & Pitch Master<br/>(Skill: marketing-pitch-showcase)"]
+        Maestro --> S8["📄 Docs, Reports & Writing<br/>(Skill: docs-reports-pro)"]
     end
 
     subgraph "Gates de Qualidade Inegociáveis"
@@ -78,7 +79,7 @@ graph TD
 
 ---
 
-## 👥 OS 7 SUBAGENTES & SKILLS ESPECIALIZADAS
+## 👥 OS 8 SUBAGENTES & SKILLS ESPECIALIZADAS
 
 | Subagente | Skill Oficial Vinculada | Especialidade Principal | Regras Mandatórias |
 | :--- | :--- | :--- | :--- |
@@ -87,6 +88,7 @@ graph TD
 | **⚡ Next.js & React** | [`premium-ui-system`](.agents/skills/premium-ui-system), [`nextjs-seo-master`](.agents/skills/nextjs-seo-master) | Frontend, UI/UX, SEO & Ranqueamento | Paleta Obsidian dark mode, Schema.org JSON-LD, sitemap e Core Web Vitals no topo do Google. |
 | **🎮 Apps & Games** | [`game-canvas-pwa`](.agents/skills/game-canvas-pwa) | Mobile Híbrido/PWA & Web Games | PWA com cache offline, game loop com delta time a 60 FPS e streaks/gamificação. |
 | **📢 Marketing & Pitch** | [`marketing-pitch-showcase`](.agents/skills/marketing-pitch-showcase) | Pitch Decks, One-Pagers & Showcase | PAS framework, Guy Kawasaki 10-slide deck, speaker notes e alinhamento por stakeholder. |
+| **📄 Docs & Reports** | [`docs-reports-pro`](.agents/skills/docs-reports-pro) | Orçamentos, Especificações & Artigos ABNT | Breakdown financeiro/horas, TAP, EAP, relatórios executivos e artigos acadêmicos ABNT/IEEE. |
 | **🧪 QA & Testes** | [`qa-automated-testing`](.agents/skills/qa-automated-testing) | Automação e Pirâmide de Testes | Suíte `pytest-django`, testes de componentes e Playwright E2E com mocks. |
 | **🛡️ Guardian** | [`security-seal-audit`](.agents/skills/security-seal-audit) | Cibersegurança & Compliance | Auditoria contínua OWASP Top 10 e emissão formal do **Selo de Segurança**. |
 | **🐧 VPS Sysadmin** | [`vps-nodocker-deploy`](.agents/skills/vps-nodocker-deploy) | DevOps Bare-Metal (Zero Docker) | Nginx via Unix Socket para Gunicorn, Next.js via PM2 e MySQL nativo no host. |
@@ -110,6 +112,7 @@ O ecossistema disponibiliza comandos diretos com barra (`/`) para você invocar 
 
 | Slash Command | Subagente Líder | O que Faz |
 | :--- | :--- | :--- |
+| **`/novo-documento-orcamento`** | Docs, Reports & Writing | Elabora propostas comerciais, orçamentos detalhados, especificações TAP/EAP e relatórios técnicos. |
 | **`/apresentacao-pitch`** | Marketing & Pitch Master | Cria Pitch Deck executivo de 10 slides, One-Pager sintético e roteiro de demo ao vivo minuto a minuto. |
 | **`/nova-landing-page`** | Next.js & Frontend Master | Cria landing page de altíssima conversão com Bento Grid, Prova Social, Preços e FAQ com Schema.org JSON-LD. |
 | **`/novo-saas`** | Django Architect + Next.js Master | Inicializa um SaaS completo: models com `TenantBaseModel` + Dashboard executivo no Next.js. |

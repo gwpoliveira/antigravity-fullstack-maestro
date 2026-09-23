@@ -5,21 +5,21 @@
 
 ## 1. VISÃO GERAL DO ECOSSISTEMA
 
-O ecossistema opera sob uma hierarquia de engenharia de software de padrão internacional. O **MAESTRO** atua como Tech Lead e Arquiteto-Chefe, orquestrando 7 subagentes especialistas e suas respectivas skills dedicadas:
+O ecossistema opera sob uma hierarquia de engenharia de software de padrão internacional. O **MAESTRO** atua como Tech Lead e Arquiteto-Chefe, orquestrando 8 subagentes especialistas e suas respectivas skills dedicadas:
 
 ```
                   ┌──────────────────────────────────────────┐
                   │    MAESTRO (Agente Orquestrador & TL)    │
                   └─────────────────────┬────────────────────┘
                                         │
-        ┌───────────────┬───────────────┼───────────────┬───────────────┬───────────────┐
-        ▼               ▼               ▼               ▼               ▼               ▼
- ┌──────────────┐┌──────────────┐ ┌──────────────┐ ┌──────────────┐┌──────────────┐┌──────────────┐
- │   DJANGO     ││   NEXT.JS    │ │ APPS/GAMES   │ │  MARKETING   ││     QA       ││  GUARDIAN    │
- │   & MYSQL    ││   & REACT    │ │ SPECIALIST   │ │   & PITCH    ││  & TESTES    ││ (SEGURANÇA)  │
- └──────┬───────┘└──────┬───────┘ └──────┬───────┘ └──────┬───────┘└──────┬───────┘└──────┬───────┘
-        │               │                │                │               │               │
-        └───────────────┴────────────────┼────────────────┴───────────────┴───────────────┘
+        ┌───────────────┬───────────────┼───────────────┬───────────────┬───────────────┬───────────────┐
+        ▼               ▼               ▼               ▼               ▼               ▼               ▼
+ ┌──────────────┐┌──────────────┐ ┌──────────────┐ ┌──────────────┐┌──────────────┐┌──────────────┐┌──────────────┐
+ │   DJANGO     ││   NEXT.JS    │ │ APPS/GAMES   │ │  MARKETING   ││ DOCS/REPORTS ││     QA       ││  GUARDIAN    │
+ │   & MYSQL    ││   & REACT    │ │ SPECIALIST   │ │   & PITCH    ││  & WRITING   ││  & TESTES    ││ (SEGURANÇA)  │
+ └──────┬───────┘└──────┬───────┘ └──────┬───────┘ └──────┬───────┘└──────┬───────┘└──────┬───────┘└──────┬───────┘
+        │               │                │                │               │               │               │
+        └───────────────┴────────────────┼────────────────┴───────────────┼───────────────┴───────────────┘
                                          ▼
                         ┌──────────────────────────────┐
                         │   VPS BARE-METAL SYSADMIN    │
@@ -64,6 +64,7 @@ O ecossistema opera sob uma hierarquia de engenharia de software de padrão inte
 | **Next.js & Frontend** | [subagent_nextjs_frontend.md](file:///.agents/subagents/subagent_nextjs_frontend.md) | [`premium-ui-system`](file:///.agents/skills/premium-ui-system/SKILL.md), [`nextjs-seo-master`](file:///.agents/skills/nextjs-seo-master/SKILL.md) | Next.js App Router, React, Design Obsidian, Schema.org e SEO no topo do Google. |
 | **Apps & Games** | [subagent_apps_games.md](file:///.agents/subagents/subagent_apps_games.md) | [`game-canvas-pwa`](file:///.agents/skills/game-canvas-pwa/SKILL.md) | PWAs 100% offline, Canvas 2D, PixiJS, Three.js, Game Loops e Gamificação. |
 | **Marketing & Pitch** | [subagent_marketing_pitch.md](file:///.agents/subagents/subagent_marketing_pitch.md) | [`marketing-pitch-showcase`](file:///.agents/skills/marketing-pitch-showcase/SKILL.md) | Pitch decks executivos, One-Pagers, scripts de demo ao vivo e propostas de valor. |
+| **Docs & Reports** | [subagent_docs_reports.md](file:///.agents/subagents/subagent_docs_reports.md) | [`docs-reports-pro`](file:///.agents/skills/docs-reports-pro/SKILL.md) | Orçamentos profissionais, especificações (TAP/EAP), relatórios executivos e artigos acadêmicos ABNT/IEEE. |
 | **Guardian (Segurança)** | [subagent_security_guardian.md](file:///.agents/subagents/subagent_security_guardian.md) | [`security-seal-audit`](file:///.agents/skills/security-seal-audit/SKILL.md) | Auditoria de segurança OWASP Top 10, sanitização e Selo de Segurança. |
 | **QA & Testes** | [subagent_qa_testing.md](file:///.agents/subagents/subagent_qa_testing.md) | [`qa-automated-testing`](file:///.agents/skills/qa-automated-testing/SKILL.md) | Pytest-Django, FactoryBoy, testes cross-tenant e Playwright E2E. |
 | **VPS Sysadmin** | [subagent_vps_nodocker.md](file:///.agents/subagents/subagent_vps_nodocker.md) | [`vps-nodocker-deploy`](file:///.agents/skills/vps-nodocker-deploy/SKILL.md) | Nginx, Systemd, Gunicorn, PM2, MySQL nativo, SSL e automação de VPS. |
