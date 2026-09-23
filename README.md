@@ -110,6 +110,7 @@ O ecossistema disponibiliza comandos diretos com barra (`/`) para você invocar 
 
 | Slash Command | Subagente Líder | O que Faz |
 | :--- | :--- | :--- |
+| **`/apresentacao-pitch`** | Marketing & Pitch Master | Cria Pitch Deck executivo de 10 slides, One-Pager sintético e roteiro de demo ao vivo minuto a minuto. |
 | **`/nova-landing-page`** | Next.js & Frontend Master | Cria landing page de altíssima conversão com Bento Grid, Prova Social, Preços e FAQ com Schema.org JSON-LD. |
 | **`/novo-saas`** | Django Architect + Next.js Master | Inicializa um SaaS completo: models com `TenantBaseModel` + Dashboard executivo no Next.js. |
 | **`/auditoria-seguranca`** | Guardian (Security) | Varre o código procurando falhas OWASP Top 10, valida headers e emite o Selo de Segurança. |
